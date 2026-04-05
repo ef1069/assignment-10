@@ -67,6 +67,15 @@ app.get('/health', (req, res) => {
     });
 });
 
+app.get ('/test', (req, res)=>{
+    res.json({
+        status: 'TEST',
+        message: 'New endpoint for test',
+        environment: process.env.NODE_ENV,
+        timestamp: new Date().toISOString()
+    });
+});
+
 // Root endpoint
 app.get('/', (req, res) => {
     res.json({
@@ -74,6 +83,7 @@ app.get('/', (req, res) => {
         version: '1.0.0',
         endpoints: {
             health: '/health',
+            test: '/test',
             register: 'POST /api/register',
             login: 'POST /api/login',
             tasks: 'GET /api/tasks (requires auth)',
