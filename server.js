@@ -67,6 +67,7 @@ app.get('/health', (req, res) => {
     });
 });
 
+// Endpoint to test redeployment
 app.get ('/test', (req, res)=>{
     res.json({
         status: 'TEST',
